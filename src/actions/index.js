@@ -26,9 +26,11 @@ export const incrementCounter = () => ({ type: COUNTER_INC });
 export const decrementCounter = () => ({ type: COUNTER_DEC });
 
 export const resetIP = () => ({ type: IP_RESET });
-export const fetchIP = (dispatch) => async () => {
-  dispatch({ type: IP_REQUEST });
-  const resp = await fetch(API_URL);
-  const { ip } = await resp.json();
-  dispatch({ type: IP_RECEIVE, ip });
+export const receiveIP = (ip) => ({ type: IP_RECEIVE, ip });
+export const requestIP = () => ({ type: IP_REQUEST });
+export const fetchIP = () => async (dispatch) => {
+  dispatch(requestIP());
+  const res = await fetch(API_URL);
+  const { ip } = await res.json();
+  dispatch(receiveIP(ip));
 };

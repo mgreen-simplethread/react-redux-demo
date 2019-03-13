@@ -1,5 +1,7 @@
 import React from 'react';
 import Counter from './containers/Counter';
+import TodoList from './containers/TodoList';
+import IPAddress from './containers/IPAddress';
 import './App.css';
 
 export default function App() {
@@ -10,6 +12,8 @@ export default function App() {
       </header>
       <main className="app">
         <Counter />
+        <TodoList />
+        <IPAddress />
       </main>
     </>
   );
